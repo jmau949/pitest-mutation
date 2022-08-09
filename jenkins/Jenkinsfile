@@ -20,7 +20,6 @@ pipeline {
             steps {
                 sh 'mvn org.pitest:pitest-maven:mutationCoverage > txt.txt'
                 sh 'cat txt.txt | xargs echo'
-                echo "$(txt.txt)"
                 sh 'cat txt.txt | grep ".*%" | grep -v "100%" && exit 1'
             }
         }
