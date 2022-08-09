@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh 'mvn org.pitest:pitest-maven:mutationCoverage > txt.txt'
                 sh 'cat txt.txt | xargs echo'
-                sh 'cat txt.txt | grep ".*%" | grep -v "100%" && echo "SHOULD NOT BE HERE" && exit 1'
+                sh 'cat txt.txt | grep ".*%" | grep -v "100%"'
             }
         }
         stage('Deploy') {
