@@ -20,7 +20,7 @@ pipeline {
             steps {
                 sh 'mvn org.pitest:pitest-maven:mutationCoverage > txt.txt'
                 sh 'cat txt.txt | xargs echo'
-                sh 'cat txt.txt | grep ".*%" | grep -v "100%" && exit 1 || echo "FOUND UNSATISFACTORY COVERAGE"'
+                sh 'cat txt.txt | grep ".*%" | grep -v "100%" && exit 1 || echo "FOUND SATISFACTORY COVERAGE 100%"'
             }
         }
         stage('Deploy') {
