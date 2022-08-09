@@ -19,7 +19,7 @@ pipeline {
         stage('Mutation Tests') {
             steps {
                 sh 'mvn org.pitest:pitest-maven:mutationCoverage > txt.txt'
-                echo "$(cat txt.txt)"
+                echo "$(txt.txt)"
                 sh 'cat txt.txt | grep ".*%" | grep -v "100%" && exit 1'
             }
         }
